@@ -11,7 +11,7 @@ jobs:
     runs-on: [ ubuntu-latest ]
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Black Duck Scan
         uses: synopsys-sig/synopsys-action@v1.13.0
         
@@ -23,6 +23,17 @@ jobs:
         with:
           blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
+
+      - name: SRM Import
+        uses: codedx/codedx-github-action@v1.3.0
+        with:
+          server-url: ${{ secrets.SRM_URL }}
+          api-key: ${{ secrets.SRM_APIKEY }}
+          auto-create-project: true
+          project-name: blackduck-security-scan
+          base-branch-name: development
+          target-branch-name: development
+          wait-for-completion: false
           
           
           
