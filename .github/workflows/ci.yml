@@ -15,8 +15,8 @@ jobs:
     #runs-on: [self-hosted]
     runs-on: [ubuntu-latest]
     steps:
-      - name: Checkout Source
-        uses: actions/checkout@v4
+ #     - name: Checkout Source
+ #       uses: actions/checkout@v4
       - name: Black Duck Action
         uses: synopsys-sig/synopsys-action@v1.13.0
         env:
