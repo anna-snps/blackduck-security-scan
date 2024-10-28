@@ -33,7 +33,8 @@ jobs:
           project-name: blackduck-security-scan
           base-branch-name: development
           target-branch-name: development
-          wait-for-completion: false
+          source-and-binaries-glob: './**'
+          wait-for-completion: true
           
           
           
