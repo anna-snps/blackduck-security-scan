@@ -26,6 +26,7 @@ jobs:
           blackduck_fixpr_enabled: true
           blackduck_prComment_enabled: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          blackduck_scan_failure_severities: 'BLOCKER'
 
       - name: SRM Import
         uses: codedx/codedx-github-action@v1.3.0
