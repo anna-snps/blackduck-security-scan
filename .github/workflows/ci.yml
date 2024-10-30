@@ -16,25 +16,24 @@ jobs:
         uses: synopsys-sig/synopsys-action@v1.13.0
         
         env:
-          DETECT_PROJECT_NAME: blackduck-security-scan
-          DETECT_PROJECT_VERSION_NAME: development
+          DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
           DETECT_ACCURACY_REQUIRED: NONE
           
         with:
           blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
 
-      - name: SRM Import
-        uses: codedx/codedx-github-action@v1.3.0
-        with:
-          server-url: ${{ secrets.SRM_URL }}
-          api-key: ${{ secrets.SRM_APIKEY }}
-          auto-create-project: true
-          project-name: blackduck-security-scan
-          base-branch-name: development
-          target-branch-name: development
-          source-and-binaries-glob: './**'
-          wait-for-completion: true
+ #     - name: SRM Import
+ #       uses: codedx/codedx-github-action@v1.3.0
+ #       with:
+ #         server-url: ${{ secrets.SRM_URL }}
+ #         api-key: ${{ secrets.SRM_APIKEY }}
+ #         auto-create-project: true
+ #         project-name: blackduck-security-scan
+ #         base-branch-name: development
+ #         target-branch-name: development
+ #         source-and-binaries-glob: './**'
+ #         wait-for-completion: true
           
           
           
