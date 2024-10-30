@@ -21,8 +21,11 @@ jobs:
           DETECT_ACCURACY_REQUIRED: NONE
           
         with:
-          blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
+          blackduck_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
+          blackduck_reports_sarif_create: true
+          blackduck_upload_sarif_report: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: SRM Import
         uses: codedx/codedx-github-action@v1.3.0
