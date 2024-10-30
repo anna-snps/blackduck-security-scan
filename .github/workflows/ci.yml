@@ -23,17 +23,17 @@ jobs:
           blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
 
- #     - name: SRM Import
- #       uses: codedx/codedx-github-action@v1.3.0
- #       with:
- #         server-url: ${{ secrets.SRM_URL }}
- #         api-key: ${{ secrets.SRM_APIKEY }}
- #         auto-create-project: true
- #         project-name: blackduck-security-scan
- #         base-branch-name: development
- #         target-branch-name: development
- #         source-and-binaries-glob: './**'
- #         wait-for-completion: true
+      - name: SRM Import
+        uses: codedx/codedx-github-action@v1.3.0
+        with:
+          server-url: ${{ secrets.SRM_URL }}
+          api-key: ${{ secrets.SRM_APIKEY }}
+          auto-create-project: true
+          project-name: ${{ github.event.repository.name }}
+          base-branch-name: ${{ github.event.repository.default_branch }}
+          target-branch-name: ${{ github.ref_name }}
+          source-and-binaries-glob: './**'
+          wait-for-completion: true
           
           
           
