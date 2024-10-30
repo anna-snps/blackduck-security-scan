@@ -17,6 +17,7 @@ jobs:
         
         env:
           DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
+          DETECT_PROJECT_VERSION_NAME: ${{ github.event.repository.default_branch }}
           DETECT_ACCURACY_REQUIRED: NONE
           
         with:
